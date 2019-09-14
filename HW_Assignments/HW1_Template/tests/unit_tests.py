@@ -33,5 +33,21 @@ def t_load(class_name, file_name="People.csv", table_name="people"):
     print("Created table = " + str(csv_tbl))
     return csv_tbl
 
+
+# Returns the connection
+def sql_load(class_name, database_name="baseball", table_name="people"):
+    connect_info = {
+        "host": "localhost",
+        "user": "dbuser",
+        "password": "databases4111",
+        "db": "baseball"
+    }
+
+    rdb_table = class_name(table_name, connect_info, ["playerID"])
+
+    print("Created instance of RDBTable and connected to Database")
+    return rdb_table
+
+
 # Shouldn't need this now.
 # t_load()

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b12d6f8e-1e9c-409f-b507-d967c9fcb1fd" name="Default" comment="Cleaned up the directory.">
-      <change afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_CSVDataTable.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_RDBDataTable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/w4111-Databases.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/w4111-Databases.iml" afterDir="false" />
+    <list default="true" id="b12d6f8e-1e9c-409f-b507-d967c9fcb1fd" name="Default" comment="Completed the CSV part of the assignment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/CSVDataTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/CSVDataTable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/RDBDataTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/RDBDataTable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_RDBDataTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_RDBDataTable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/unit_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/unit_tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,7 +63,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_CSVDataTable.py">
+  <component name="RunManager" selected="Python tests.Unittests in test_RDBDataTable.py">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -115,28 +112,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/CSVDataTable.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="csv_dir_to_sql" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="w4111-Databases" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Examples" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Examples/csv_dir_to_sql.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -206,13 +181,28 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests in test_RDBDataTable.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="w4111-Databases" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_RDBDataTable.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in test_RDBDataTable.py" />
         <item itemvalue="Python tests.Unittests in test_CSVDataTable.py" />
         <item itemvalue="Python tests.Unittests for test_CSVDataTable.TestCSVDataTable" />
         <item itemvalue="Python.CSVDataTable" />
         <item itemvalue="Python.test_helper" />
-        <item itemvalue="Python.csv_dir_to_sql" />
       </list>
     </recent_temporary>
   </component>
@@ -240,7 +230,9 @@
       <workItem from="1565910391322" duration="643000" />
       <workItem from="1568299367567" duration="13086000" />
       <workItem from="1568321370118" duration="16072000" />
-      <workItem from="1568394062890" duration="28397000" />
+      <workItem from="1568394062890" duration="33373000" />
+      <workItem from="1568470582982" duration="3766000" />
+      <workItem from="1568498305248" duration="5627000" />
     </task>
     <task id="LOCAL-00001" summary="Moved content">
       <created>1545233951773</created>
@@ -284,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565806124105</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Completed the CSV part of the assignment">
+      <created>1568429414164</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1568429414164</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +307,9 @@
     <MESSAGE value="Cleaned up the directory." />
     <MESSAGE value="- Cleaned up text and dates.&#10;- Added link to first lecture." />
     <MESSAGE value="Some sample code for mainpulating the DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some sample code for mainpulating the DB" />
+    <MESSAGE value="Completed the CSV part of the assignment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed the CSV part of the assignment" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -323,6 +324,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/w4111_Databases$Unittests_for_test_CSVDataTable_TestCSVDataTable.coverage" NAME="Unittests for test_CSVDataTable.TestCSVDataTable Coverage Results" MODIFIED="1568422527822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
+    <SUITE FILE_PATH="coverage/w4111_Databases$Unittests_in_test_RDBDataTable_py.coverage" NAME="Unittests in test_RDBDataTable.py Coverage Results" MODIFIED="1568503961562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
     <SUITE FILE_PATH="coverage/w4111_Databases$Lahman.coverage" NAME="Lahman Coverage Results" MODIFIED="1565629972596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simplewebapp" />
     <SUITE FILE_PATH="coverage/w4111_Databases$csv_dir_to_sql.coverage" NAME="csv_dir_to_sql Coverage Results" MODIFIED="1565635349464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Examples" />
     <SUITE FILE_PATH="coverage/w4111_Databases$test_helper.coverage" NAME="test_helper Coverage Results" MODIFIED="1565809298574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Examples" />
