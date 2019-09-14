@@ -2,81 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b12d6f8e-1e9c-409f-b507-d967c9fcb1fd" name="Default" comment="Cleaned up the directory.">
+      <change afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_CSVDataTable.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_RDBDataTable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/w4111-Databases.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/w4111-Databases.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/student_example.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/student_example.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Examples/SQLHelper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Examples/SQLHelper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Examples/test_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Examples/test_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lectures/Lecture_1/.ipynb_checkpoints/w4111-L1-f2019-Introduction-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture_1/.ipynb_checkpoints/w4111-L1-f2019-Introduction-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lectures/Lecture_1/w4111-L1-f2019-Introduction.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture_1/w4111-L1-f2019-Introduction.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/CSVDataTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/CSVDataTable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/RDBDataTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/RDBDataTable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/unit_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/unit_tests.py" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/couchstuff/t1.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data/lahman2019/AllstarFull.csv">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Examples/csv_dir_to_sql.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="11" selection-start-line="11" selection-end-line="16" selection-end-column="68" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Examples/SQLHelper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" lean-forward="true" selection-end-line="180" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Examples/test_helper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="123" selection-start-line="123" selection-end-line="127" selection-end-column="68" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simplewebapp/api/data_service.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -89,22 +27,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="[Connection] CONSOLE - Connection" />
-        <option value="$PROJECT_DIR$/lecture1.sql" />
-        <option value="$PROJECT_DIR$/CodeSamples/baseball.sql" />
-        <option value="$PROJECT_DIR$/Lectures/Lecture_1/w4111-L1-f2018-Introduction.ipynb" />
-        <option value="$PROJECT_DIR$/index.md" />
-        <option value="$PROJECT_DIR$/Examples/__init__.py" />
-        <option value="$PROJECT_DIR$/Examples/csv_mysql_loader.py" />
-        <option value="$PROJECT_DIR$/Examples/csv_dir_to_sql.py" />
-        <option value="$PROJECT_DIR$/Examples/test_helper.py" />
-        <option value="$PROJECT_DIR$/Examples/SQLHelper.py" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
       <list>
@@ -112,53 +34,24 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="75" />
-    <option name="y" value="36" />
-    <option name="width" value="1694" />
-    <option name="height" value="995" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="w4111-Databases" type="b2602c69:ProjectViewProjectNode" />
-              <item name="w4111-Databases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="w4111-Databases" type="b2602c69:ProjectViewProjectNode" />
-              <item name="w4111-Databases" type="462c0819:PsiDirectoryNode" />
-              <item name="Examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
+  <component name="ProjectId" id="1Qk0cPtZG6x2ommoSATGHDy2T3l" />
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../E6156CloudNativeApplications/E6156-Cloud-Native-Applications/Projects/EB" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/Old" />
-      <recent name="$PROJECT_DIR$/Slides" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\dferguso\ansys_one_drive\Columbia\W4111f19\w4111-Databases\Data\lahman2019" />
       <recent name="$PROJECT_DIR$/Images" />
       <recent name="$PROJECT_DIR$/Lectures/Lecture_1" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Old" />
+      <recent name="$PROJECT_DIR$/Slides" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -173,7 +66,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_helper">
+  <component name="RunManager" selected="Python tests.Unittests in test_CSVDataTable.py">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -208,7 +101,7 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration name="Lahman" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="CSVDataTable" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="w4111-Databases" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -216,12 +109,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simplewebapp" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HW_Assignments/HW1_Template/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simplewebapp/Lahman.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/CSVDataTable.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -283,11 +176,43 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for test_CSVDataTable.TestCSVDataTable" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="w4111-Databases" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_CSVDataTable.TestCSVDataTable&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test_CSVDataTable.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="w4111-Databases" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_CSVDataTable.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in test_CSVDataTable.py" />
+        <item itemvalue="Python tests.Unittests for test_CSVDataTable.TestCSVDataTable" />
+        <item itemvalue="Python.CSVDataTable" />
         <item itemvalue="Python.test_helper" />
         <item itemvalue="Python.csv_dir_to_sql" />
-        <item itemvalue="Python.Lahman" />
       </list>
     </recent_temporary>
   </component>
@@ -313,6 +238,9 @@
       <workItem from="1565554391535" duration="25201000" />
       <workItem from="1565900682678" duration="9000" />
       <workItem from="1565910391322" duration="643000" />
+      <workItem from="1568299367567" duration="13086000" />
+      <workItem from="1568321370118" duration="16072000" />
+      <workItem from="1568394062890" duration="28397000" />
     </task>
     <task id="LOCAL-00001" summary="Moved content">
       <created>1545233951773</created>
@@ -359,48 +287,21 @@
     <option name="localTasksCounter" value="7" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33591000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="75" y="36" width="1694" height="995" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17686659" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="MaxCompute Project Explorer" order="2" />
-      <window_info id="DB Browser" order="3" weight="0.3295964" />
-      <window_info id="MaxCompute Job Explorer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31322506" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39907193" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="MaxCompute Console" order="7" />
-      <window_info anchor="bottom" id="DB Execution Console" order="8" weight="0.32964602" />
-      <window_info anchor="bottom" id="Running Info" order="9" />
-      <window_info anchor="bottom" id="Graph Database Console" order="10" />
-      <window_info anchor="bottom" id="Running Result" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32964602" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="15" />
-      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="17" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Graph Database" order="3" />
-      <window_info anchor="right" id="Data View" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="SciView" order="6" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Moved content" />
@@ -421,108 +322,11 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/w4111_Databases$Unittests_for_test_CSVDataTable_TestCSVDataTable.coverage" NAME="Unittests for test_CSVDataTable.TestCSVDataTable Coverage Results" MODIFIED="1568422527822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
     <SUITE FILE_PATH="coverage/w4111_Databases$Lahman.coverage" NAME="Lahman Coverage Results" MODIFIED="1565629972596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simplewebapp" />
     <SUITE FILE_PATH="coverage/w4111_Databases$csv_dir_to_sql.coverage" NAME="csv_dir_to_sql Coverage Results" MODIFIED="1565635349464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Examples" />
     <SUITE FILE_PATH="coverage/w4111_Databases$test_helper.coverage" NAME="test_helper Coverage Results" MODIFIED="1565809298574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Examples" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="db://[Connection] TABLE - finalexamhw5.Appearances" />
-    <entry file="db://[Connection] TABLE - finalexamhw5.players" />
-    <entry file="file://$PROJECT_DIR$/Old/lecture1.sql" />
-    <entry file="file://$PROJECT_DIR$/Old/Slides/CodeSamples/baseball.sql" />
-    <entry file="db://[Connection] CONSOLE - Connection" />
-    <entry file="db://[Connection] FUNCTION - finalexamhw5.date_valid" />
-    <entry file="file://$PROJECT_DIR$/index-old.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lectures/Lecture_1/w4111-L1-f2018-Introduction.ipynb" />
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/csv_mysql_loader.py" />
-    <entry file="file://$PROJECT_DIR$/Data/People.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Appearances.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="737">
-          <caret line="49" column="14" lean-forward="true" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="676">
-            <caret line="106" column="72" lean-forward="true" selection-start-line="106" selection-start-column="72" selection-end-line="106" selection-end-column="72" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/lahman2019/TeamsHalf.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/LahmansBaseballDB_2018/LahmansBaseballDB_2018.bak">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/couchstuff/t1.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/lahman2019/AllstarFull.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/csv_dir_to_sql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" selection-start-line="11" selection-end-line="16" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simplewebapp/api/data_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/test_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="123" selection-start-line="123" selection-end-line="127" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/SQLHelper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-end-line="180" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <SUITE FILE_PATH="coverage/w4111_Databases$Unittests_in_test_CSVDataTable_py.coverage" NAME="Unittests in test_CSVDataTable.py Coverage Results" MODIFIED="1568428955367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
+    <SUITE FILE_PATH="coverage/w4111_Databases$CSVDataTable.coverage" NAME="CSVDataTable Coverage Results" MODIFIED="1568302685322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HW_Assignments/HW1_Template/src" />
   </component>
 </project>

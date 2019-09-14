@@ -1,5 +1,5 @@
-from W4111_F19_HW1.src.BaseDataTable import BaseDataTable
-import pymysql
+from src.BaseDataTable import BaseDataTable
+
 
 class RDBDataTable(BaseDataTable):
 

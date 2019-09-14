@@ -1,14 +1,18 @@
 
-from src.BaseDataTable import BaseDataTable
 import copy
 import csv
-import logging
 import json
+import logging
 import os
+from functools import reduce
+
 import pandas as pd
+
+from src.BaseDataTable import BaseDataTable
 
 pd.set_option("display.width", 256)
 pd.set_option('display.max_columns', 20)
+
 
 class CSVDataTable(BaseDataTable):
     """
@@ -55,7 +59,7 @@ class CSVDataTable(BaseDataTable):
             rows_to_print = self._rows[0:temp_r]
             keys = self._rows[0].keys()
 
-            for i in range(0,CSVDataTable._no_of_separators):
+            for i in range(0, CSVDataTable._no_of_separators):
                 tmp_row = {}
                 for k in keys:
                     tmp_row[k] = "***"
@@ -91,6 +95,18 @@ class CSVDataTable(BaseDataTable):
         Write the information back to a file.
         :return: None
         """
+        dir_info = self._data["connect_info"].get("directory")
+        file_n = self._data["connect_info"].get("file_name")
+        full_name = os.path.join(dir_info, file_n)
+
+        with open(full_name, "w", newline="") as txt_file:
+            if len(self._rows) is not 0:
+                csv_d_writer = csv.DictWriter(txt_file, fieldnames=self._rows[0].keys())
+                csv_d_writer.writeheader()
+                for r in self._rows:
+                    csv_d_writer.writerow(r)
+
+        self._logger.debug("CSVDataTable._save: Saved " + str(len(self._rows)) + " rows")
 
     @staticmethod
     def matches_template(row, template):
@@ -104,6 +120,28 @@ class CSVDataTable(BaseDataTable):
 
         return result
 
+    @staticmethod
+    def matches_primary_key(self, row, key_fields):
+        result = True
+
+        if self._data.get("key_columns") is not None:
+            for i in range(len(self._data.get("key_columns"))):
+                if key_fields[i] != row.get((self._data.get("key_columns"))[i], None):
+                    result = False
+                    break
+
+        return result
+
+    @staticmethod
+    def check_invalid_primary_keys(self, key_fields):
+        # Check validity only when the primary keys are set for the table
+        if self._data["key_columns"] is None:
+            return True
+
+        for v in key_fields:
+            if v is None or v is "":
+                raise ValueError("Invalid Primary Keys Provided")
+
     def find_by_primary_key(self, key_fields, field_list=None):
         """
 
@@ -112,7 +150,17 @@ class CSVDataTable(BaseDataTable):
         :return: None, or a dictionary containing the requested fields for the record identified
             by the key.
         """
-        pass
+        self.check_invalid_primary_keys(self, key_fields)
+
+        result = None
+        for row in self._rows:
+            if self.matches_primary_key(self, row, key_fields):
+                if field_list is None:
+                    result = row
+                else:
+                    result = dict((k, row[k]) for k in field_list if k in row)
+                break
+        return result
 
     def find_by_template(self, template, field_list=None, limit=None, offset=None, order_by=None):
         """
@@ -125,17 +173,35 @@ class CSVDataTable(BaseDataTable):
         :return: A list containing dictionaries. A dictionary is in the list representing each record
             that matches the template. The dictionary only contains the requested fields.
         """
-        pass
+        result = []
+        for row in self._rows:
+            if self.matches_template(row, template):
+                if field_list is None:
+                    result.append(row)
+                else:
+                    result.append(dict((k, row[k]) for k in field_list if k in row))
+        return result
 
     def delete_by_key(self, key_fields):
         """
 
         Deletes the record that matches the key.
 
-        :param template: A template.
+        :param key_fields: List of value for the key fields.
         :return: A count of the rows deleted.
         """
-        pass
+        self.check_invalid_primary_keys(self, key_fields)
+
+        count = 0
+        for idx, row in enumerate(self._rows):
+            if self.matches_primary_key(self, row, key_fields):
+                count += 1
+                del self._rows[idx]
+                break
+
+        self.save()
+
+        return count
 
     def delete_by_template(self, template):
         """
@@ -143,7 +209,17 @@ class CSVDataTable(BaseDataTable):
         :param template: Template to determine rows to delete.
         :return: Number of rows deleted.
         """
-        pass
+        count = []
+        for idx, row in enumerate(self._rows):
+            if self.matches_template(row, template):
+                count += [idx]
+
+        for idx in sorted(count, reverse=True):
+            del self._rows[idx]
+
+        self.save()
+
+        return len(count)
 
     def update_by_key(self, key_fields, new_values):
         """
@@ -152,6 +228,29 @@ class CSVDataTable(BaseDataTable):
         :param new_values: A dict of field:value to set for updated row.
         :return: Number of rows updated.
         """
+        self.check_invalid_primary_keys(self, key_fields)
+
+        # To Check if the user is trying to update the primary key
+        new_primary_key_fields = copy.copy(key_fields)
+        for k, v in enumerate(self._data["key_columns"]):
+            if v in new_values:
+                new_primary_key_fields[k] = new_values[v]
+        new_key_element = self.find_by_primary_key(new_primary_key_fields)
+
+        count = 0
+        if new_key_element is None:
+            # Allow update if it is still unique
+            for idx, row in enumerate(self._rows):
+                if self.matches_primary_key(self, row, key_fields):
+                    count += 1
+                    row.update(new_values)
+                    break
+        else:
+            self._logger.error("Element with primary key: " + str(key_fields) + " already exists")
+
+        self.save()
+
+        return count
 
     def update_by_template(self, template, new_values):
         """
@@ -160,7 +259,16 @@ class CSVDataTable(BaseDataTable):
         :param new_values: New values to set for matching fields.
         :return: Number of rows updated.
         """
-        pass
+        count = 0
+        # Need to prevent the user from updating multiple primary keys at once
+        for idx, row in enumerate(self._rows):
+            if self.matches_template(row, template):
+                count += 1
+                row.update(new_values)
+
+        self.save()
+
+        return count
 
     def insert(self, new_record):
         """
@@ -168,7 +276,26 @@ class CSVDataTable(BaseDataTable):
         :param new_record: A dictionary representing a row to add to the set of records.
         :return: None
         """
-        pass
+        if self._data["key_columns"] is not None:
+            # Check for invalid primary key entries
+            self.check_invalid_primary_keys(self, [new_record[k] for k in self._data["key_columns"]])
+
+        if len(self._rows) != 0:
+            # 1. Check if all keys of new_record are subset of original data
+            # 2. Check to see if all keys are set to match dimensionality of data
+            keys_original = self._rows[0].keys()
+            keys_new = new_record.keys()
+
+            if not reduce(lambda x, y: x and y, [True if t in keys_original else False for t in keys_new]):
+                raise ValueError("Extra Attributes present in new record")
+
+            for k in keys_original:
+                if k not in new_record:
+                    new_record.update({k: ""})
+
+        self._add_row(new_record)
+
+        self.save()
 
     def get_rows(self):
         return self._rows
