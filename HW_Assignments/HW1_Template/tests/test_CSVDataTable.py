@@ -6,6 +6,13 @@ from src.CSVDataTable import CSVDataTable
 from tests.unit_tests import logger_load, data_dir, t_load
 
 
+# Testing Methodology Used
+# 1. For Find Methods: Tested on testing CSV data
+# 2. For Load & Save Methods: Tested on actual CSV data
+# 3. For other methods, created a mocked version of tests to check various scenarios
+# 4. Mocking allows to test the functions without altering the state of true data
+# 5. You need the People.csv in the sub-directory named Testing under Data for the save method
+#    and the find methods
 class TestCSVDataTable(TestCase):
 
     @classmethod
@@ -154,8 +161,6 @@ class TestCSVDataTable(TestCase):
          1, {"a": "3", "b": "1"}, "Updates the element if it exists (single)"),
         ([{"a": "1", "b": "1"}, {"a": "2", "b": "2"}], ["a", "b"], ["1", "1"], {"a": "3", "b": "3"},
          1, {"a": "3", "b": "3"}, "Updates the element if it exists (multiple)"),
-        ([{"a": "1", "b": "1"}, {"a": "2", "b": "2"}], ["a"], ["0"], {"a": "1"},
-         0, None, "Can't update if element new value already exists"),
         ([{"a": "1", "b": "1"}, {"a": "2", "b": "2"}], ["a", "b"], ["0", "1"], {"a": "3", "b": "3"},
          0, None, "Can't update if element not found (multiple)")
     ])
@@ -206,3 +211,25 @@ class TestCSVDataTable(TestCase):
         changes = csv_tbl.update_by_template({"playerID": "aardsda01"}, {"birthYear": "1981"})
         self.assertEqual(changes, 1)
         print("Test: Saves People.csv with correct data")
+
+    @parameterized.expand([
+        ([{"a": "1", "b": "1"}, {"a": "2", "b": "2"}], ["a"], ["0"], {"a": "1"},
+         "Can't update if element new value already exists"),
+    ])
+    def test_update_with_existing_key(self, rows, key_columns, key_fields, new_values, description):
+        with mock.patch.multiple(self._csv_table, _rows=rows, _data={"key_columns": key_columns},
+                                 save=lambda *args: None):
+            with self.assertRaises(ValueError):
+                self._csv_table.update_by_key(key_fields, new_values)
+        print("Tests: " + description)
+
+    @parameterized.expand([
+        ([{"a": "1", "b": "1"}, {"a": "2", "b": "2"}], ["a"], {"a": "1", "b": "2"},
+         "Can't insert element if element with same key exists"),
+    ])
+    def test_insert_with_existing_key(self, rows, key_columns, new_record, description):
+        with mock.patch.multiple(self._csv_table, _rows=rows, _data={"key_columns": key_columns},
+                                 save=lambda *args: None):
+            with self.assertRaises(ValueError):
+                self._csv_table.insert(new_record)
+        print("Tests: " + description)

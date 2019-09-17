@@ -82,10 +82,23 @@ class CSVDataTable(BaseDataTable):
         dir_info = self._data["connect_info"].get("directory")
         file_n = self._data["connect_info"].get("file_name")
         full_name = os.path.join(dir_info, file_n)
+        delimiter = ","
+        if "delimiter" in self._data["connect_info"]:
+            delimiter = self._data["connect_info"].get("delimiter")
 
+        key_map = {}
         with open(full_name, "r") as txt_file:
-            csv_d_rdr = csv.DictReader(txt_file)
+            csv_d_rdr = csv.DictReader(txt_file, delimiter=delimiter)
             for r in csv_d_rdr:
+                # Check the sanity of the row being entered
+                if self._data["key_columns"] is not None:
+                    key = tuple([r.get(k) for k in self._data["key_columns"]])
+                    if None in key:
+                        raise ValueError("Key does not exist in the table")
+                    if key in key_map:
+                        # Throw exception
+                        raise ValueError("Key already exists in the database")
+                    key_map[key] = True
                 self._add_row(r)
 
         self._logger.debug("CSVDataTable._load: Loaded " + str(len(self._rows)) + " rows")
@@ -246,7 +259,7 @@ class CSVDataTable(BaseDataTable):
                     row.update(new_values)
                     break
         else:
-            self._logger.error("Element with primary key: " + str(key_fields) + " already exists")
+            raise ValueError("The element with that key already exists. Can't update the key to this value")
 
         self.save()
 
@@ -283,15 +296,21 @@ class CSVDataTable(BaseDataTable):
         if len(self._rows) != 0:
             # 1. Check if all keys of new_record are subset of original data
             # 2. Check to see if all keys are set to match dimensionality of data
+            # 3. Check if element with key doesn't already exist
             keys_original = self._rows[0].keys()
             keys_new = new_record.keys()
 
             if not reduce(lambda x, y: x and y, [True if t in keys_original else False for t in keys_new]):
-                raise ValueError("Extra Attributes present in new record")
+                raise ValueError("Extra Keys present in new record which are not in table")
 
-            for k in keys_original:
-                if k not in new_record:
-                    new_record.update({k: ""})
+            element = self.find_by_primary_key([new_record[k] for k in self._data["key_columns"]])
+
+            if element is None:
+                for k in keys_original:
+                    if k not in new_record:
+                        new_record.update({k: ""})
+            else:
+                raise ValueError("Insert failed since element with duplicate key already exists")
 
         self._add_row(new_record)
 

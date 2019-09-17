@@ -4,6 +4,11 @@ from src.RDBDataTable import RDBDataTable
 from tests.unit_tests import logger_load, sql_load
 
 
+# Testing Methodology Used
+# Most of the tests are performed by assertion
+# They perform an operation on the data
+# The operation is then asserted for the correctness
+# The operation is reverted to bring data back to original state
 class TestRDBDataTable(TestCase):
 
     @classmethod
