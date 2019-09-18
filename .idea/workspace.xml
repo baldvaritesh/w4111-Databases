@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b12d6f8e-1e9c-409f-b507-d967c9fcb1fd" name="Default" comment="Completed the second part of the assignment">
-      <change afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_RevenueReportCSV.py" afterDir="false" />
+    <list default="true" id="b12d6f8e-1e9c-409f-b507-d967c9fcb1fd" name="Default" comment="Assignment complete with all the assertion tests that have been requested.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/CSVDataTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/src/CSVDataTable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_CSVDataTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_CSVDataTable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_RDBDataTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests/test_RDBDataTable.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -235,7 +233,8 @@
       <workItem from="1568470582982" duration="3766000" />
       <workItem from="1568498305248" duration="9731000" />
       <workItem from="1568649743986" duration="169000" />
-      <workItem from="1568739729477" duration="3659000" />
+      <workItem from="1568739729477" duration="4503000" />
+      <workItem from="1568815619211" duration="5015000" />
     </task>
     <task id="LOCAL-00001" summary="Moved content">
       <created>1545233951773</created>
@@ -293,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568504018648</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Assignment complete with all the assertion tests that have been requested.">
+      <created>1568743542383</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1568743542383</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +325,8 @@
     <MESSAGE value="Some sample code for mainpulating the DB" />
     <MESSAGE value="Completed the CSV part of the assignment" />
     <MESSAGE value="Completed the second part of the assignment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed the second part of the assignment" />
+    <MESSAGE value="Assignment complete with all the assertion tests that have been requested." />
+    <option name="LAST_COMMIT_MESSAGE" value="Assignment complete with all the assertion tests that have been requested." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -340,7 +347,7 @@
     <SUITE FILE_PATH="coverage/w4111_Databases$csv_dir_to_sql.coverage" NAME="csv_dir_to_sql Coverage Results" MODIFIED="1565635349464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Examples" />
     <SUITE FILE_PATH="coverage/w4111_Databases$test_RevenueReportCSV.coverage" NAME="test_RevenueReportCSV Coverage Results" MODIFIED="1568742642809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
     <SUITE FILE_PATH="coverage/w4111_Databases$test_helper.coverage" NAME="test_helper Coverage Results" MODIFIED="1565809298574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Examples" />
-    <SUITE FILE_PATH="coverage/w4111_Databases$Unittests_in_test_CSVDataTable_py.coverage" NAME="Unittests in test_CSVDataTable.py Coverage Results" MODIFIED="1568743314599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
+    <SUITE FILE_PATH="coverage/w4111_Databases$Unittests_in_test_CSVDataTable_py.coverage" NAME="Unittests in test_CSVDataTable.py Coverage Results" MODIFIED="1568820696211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HW_Assignments/HW1_Template/tests" />
     <SUITE FILE_PATH="coverage/w4111_Databases$CSVDataTable.coverage" NAME="CSVDataTable Coverage Results" MODIFIED="1568302685322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HW_Assignments/HW1_Template/src" />
   </component>
 </project>

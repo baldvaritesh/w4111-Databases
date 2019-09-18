@@ -212,7 +212,8 @@ class CSVDataTable(BaseDataTable):
                 del self._rows[idx]
                 break
 
-        self.save()
+        if count > 0:
+            self.save()
 
         return count
 
@@ -230,7 +231,8 @@ class CSVDataTable(BaseDataTable):
         for idx in sorted(count, reverse=True):
             del self._rows[idx]
 
-        self.save()
+        if len(count) > 0:
+            self.save()
 
         return len(count)
 
@@ -261,7 +263,8 @@ class CSVDataTable(BaseDataTable):
         else:
             raise ValueError("The element with that key already exists. Can't update the key to this value")
 
-        self.save()
+        if count > 0:
+            self.save()
 
         return count
 
@@ -272,16 +275,24 @@ class CSVDataTable(BaseDataTable):
         :param new_values: New values to set for matching fields.
         :return: Number of rows updated.
         """
-        count = 0
+        idxes = []
         # Need to prevent the user from updating multiple primary keys at once
         for idx, row in enumerate(self._rows):
             if self.matches_template(row, template):
-                count += 1
-                row.update(new_values)
+                idxes.append(idx)
+                if self._data["key_columns"] is not None:
+                    new_key = [new_values[k] if k in new_values else row[k] for k in self._data["key_columns"]]
+                    element = self.find_by_primary_key(new_key)
+                    if element is not None:
+                        raise ValueError("You are trying to update keys which already exist in the table")
 
-        self.save()
+        for idx in idxes:
+            self._rows[idx].update(new_values)
 
-        return count
+        if len(idxes) > 0:
+            self.save()
+
+        return len(idxes)
 
     def insert(self, new_record):
         """

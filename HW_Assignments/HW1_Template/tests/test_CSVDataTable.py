@@ -184,7 +184,7 @@ class TestCSVDataTable(TestCase):
          1, [{"a": "3", "b": "1"}], "Updates the element if it exists (multiple template)")
     ])
     def test_update_by_template(self, rows, template, new_values, expected_output, expected_element, description):
-        with mock.patch.multiple(self._csv_table, _rows=rows, save=lambda *args: None):
+        with mock.patch.multiple(self._csv_table, _rows=rows, save=lambda *args: None, _data={"key_columns": None}):
             obtained_output = self._csv_table.update_by_template(template, new_values)
             self.assertEqual(obtained_output, expected_output)
             if obtained_output:
@@ -213,14 +213,19 @@ class TestCSVDataTable(TestCase):
         print("Test: Saves People.csv with correct data")
 
     @parameterized.expand([
-        ([{"a": "1", "b": "1"}, {"a": "2", "b": "2"}], ["a"], ["0"], {"a": "1"},
+        ([{"a": "1", "b": "1"}, {"a": "2", "b": "2"}], ["a"], ["0"], {"a": "1"}, "key",
          "Can't update if element new value already exists"),
+        ([{"a": "1", "b": "1", "c": "1"}, {"a": "1", "b": "2", "c": "2"}], ["a", "b"], {"c": "2"},
+         {"b": "1"}, "template", "Can't update if element new value already exists: template"),
     ])
-    def test_update_with_existing_key(self, rows, key_columns, key_fields, new_values, description):
+    def test_update_with_existing_key(self, rows, key_columns, key_fields, new_values, method, description):
         with mock.patch.multiple(self._csv_table, _rows=rows, _data={"key_columns": key_columns},
                                  save=lambda *args: None):
             with self.assertRaises(ValueError):
-                self._csv_table.update_by_key(key_fields, new_values)
+                if method == "key":
+                    self._csv_table.update_by_key(key_fields, new_values)
+                else:
+                    self._csv_table.update_by_template(key_fields, new_values)
         print("Tests: " + description)
 
     @parameterized.expand([
