@@ -111,10 +111,13 @@ class CSVDataTable(BaseDataTable):
         dir_info = self._data["connect_info"].get("directory")
         file_n = self._data["connect_info"].get("file_name")
         full_name = os.path.join(dir_info, file_n)
+        delimiter = ","
+        if "delimiter" in self._data["connect_info"]:
+            delimiter = self._data["connect_info"].get("delimiter")
 
         with open(full_name, "w", newline="") as txt_file:
             if len(self._rows) is not 0:
-                csv_d_writer = csv.DictWriter(txt_file, fieldnames=self._rows[0].keys())
+                csv_d_writer = csv.DictWriter(txt_file, fieldnames=self._rows[0].keys(), delimiter=delimiter)
                 csv_d_writer.writeheader()
                 for r in self._rows:
                     csv_d_writer.writerow(r)
