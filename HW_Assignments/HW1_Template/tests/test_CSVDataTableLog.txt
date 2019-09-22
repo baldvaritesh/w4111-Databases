@@ -1,0 +1,137 @@
+Testing started at 9:44 PM ...
+C:\Users\baldv\Anaconda3\envs\w4111\python.exe "C:\Program Files\JetBrains\PyCharm 2019.2.1\helpers\pycharm\_jb_unittest_runner.py" --path "C:/Users/baldv/Documents/Sem1/Introduction to Databases/w4111-Databases/HW_Assignments/HW1_Template/tests/test_CSVDataTable.py"
+Launching unittests with arguments python -m unittest C:/Users/baldv/Documents/Sem1/Introduction to Databases/w4111-Databases/HW_Assignments/HW1_Template/tests/test_CSVDataTable.py in C:\Users\baldv\Documents\Sem1\Introduction to Databases\w4111-Databases\HW_Assignments\HW1_Template\tests
+
+DEBUG:root:CSVDataTable.__init__: data = {
+  "table_name": "people",
+  "connect_info": {
+    "directory": "C:\\Users\\baldv\\Documents\\Sem1\\Introduction to Databases\\w4111-Databases\\HW_Assignments\\HW1_Template\\Data\\Baseball",
+    "file_name": "People.csv"
+  },
+  "key_columns": [
+    "playerID"
+  ],
+  "debug": true
+}
+DEBUG:root:CSVDataTable._load: Loaded 19617 rows
+Created table = CSVDataTable: config data =
+{
+  "table_name": "people",
+  "connect_info": {
+    "directory": "C:\\Users\\baldv\\Documents\\Sem1\\Introduction to Databases\\w4111-Databases\\HW_Assignments\\HW1_Template\\Data\\Baseball",
+    "file_name": "People.csv"
+  },
+  "key_columns": [
+    "playerID"
+  ],
+  "debug": true
+}
+Some Rows: =
+     playerID birthYear birthMonth birthDay birthCountry birthState      birthCity deathYear deathMonth deathDay  ...  nameLast        nameGiven weight height bats throws       debut   finalGame   retroID    bbrefID
+0   aardsda01      1981         12       27          USA         CO         Denver                                ...   Aardsma      David Allan    215     75    R      R  2004-04-06  2015-08-23  aardd001  aardsda01
+1   aaronha01      1934          2        5          USA         AL         Mobile                                ...     Aaron      Henry Louis    180     72    R      R  1954-04-13  1976-10-03  aaroh101  aaronha01
+2   aaronto01      1939          8        5          USA         AL         Mobile      1984          8       16  ...     Aaron       Tommie Lee    190     75    R      R  1962-04-10  1971-09-26  aarot101  aaronto01
+3    aasedo01      1954          9        8          USA         CA         Orange                                ...      Aase   Donald William    190     75    R      R  1977-07-26  1990-10-03  aased001   aasedo01
+4    abadan01      1972          8       25          USA         FL     Palm Beach                                ...      Abad    Fausto Andres    184     73    L      L  2001-09-10  2006-04-13  abada001   abadan01
+5         ***       ***        ***      ***          ***        ***            ***       ***        ***      ***  ...       ***              ***    ***    ***  ***    ***         ***         ***       ***        ***
+6         ***       ***        ***      ***          ***        ***            ***       ***        ***      ***  ...       ***              ***    ***    ***  ***    ***         ***         ***       ***        ***
+7   zupcibo01      1966          8       18          USA         PA     Pittsburgh                                ...    Zupcic           Robert    220     76    R      R  1991-09-07  1994-08-04  zupcb001  zupcibo01
+8    zupofr01      1939          8       29          USA         CA  San Francisco      2005          3       25  ...      Zupo     Frank Joseph    182     71    L      R  1957-07-01  1961-05-09  zupof101   zupofr01
+9   zuvelpa01      1958         10       31          USA         CA      San Mateo                                ...   Zuvella             Paul    173     72    R      R  1982-09-04  1991-05-02  zuvep001  zuvelpa01
+10  zuverge01      1924          8       20          USA         MI        Holland      2014          9        8  ...  Zuverink           George    195     76    R      R  1951-04-21  1959-06-15  zuveg101  zuverge01
+11  zwilldu01      1888         11        2          USA         MO      St. Louis      1978          3       27  ...  Zwilling  Edward Harrison    160     66    L      L  1910-08-14  1916-07-12  zwild101  zwilldu01
+
+[12 rows x 24 columns]
+
+
+Ran 42 tests in 1.609s
+
+OK
+
+Process finished with exit code 0
+DEBUG:root:CSVDataTable.__init__: data = {
+  "table_name": "people",
+  "connect_info": {
+    "directory": "C:\\Users\\baldv\\Documents\\Sem1\\Introduction to Databases\\w4111-Databases\\HW_Assignments\\HW1_Template\\Data\\Baseball",
+    "file_name": "People.csv"
+  },
+  "key_columns": null,
+  "debug": true
+}
+DEBUG:root:CSVDataTable._load: Loaded 19617 rows
+Test: Loads People.csv with correct data, key: None
+DEBUG:root:CSVDataTable.__init__: data = {
+  "table_name": "people",
+  "connect_info": {
+    "directory": "C:\\Users\\baldv\\Documents\\Sem1\\Introduction to Databases\\w4111-Databases\\HW_Assignments\\HW1_Template\\Data\\Baseball",
+    "file_name": "People.csv"
+  },
+  "key_columns": [
+    "playerID"
+  ],
+  "debug": true
+}
+DEBUG:root:CSVDataTable._load: Loaded 19617 rows
+Test: Loads People.csv with correct data, key: ['playerID']
+Test: Throws exception when empty string is sent
+Test: Throws exception when None is sent
+Test: None of the keys should be empty or None
+Tests: Deletes the element if it exists (single)
+Tests: Deletes the element if it exists (multiple)
+Tests: Can't delete if element not found (single)
+Tests: Can't delete if element not found (multiple)
+Tests: Deletes the element if it exists (single template)
+Tests: Deletes the element if it exists (multiple template)
+Tests: Can't delete if element not found (single template)
+Tests: Can't delete if element not found (multiple template)
+Tests: Deletes the element if it exists (multiple deletions)
+Test: Finds one field given correct key
+Test: Finds multiple fields given correct key
+Test: Returns None if the object is not found
+Test: Returns all of the object when key_fields are sent
+Test: Finds 1 field for one key template cases
+Test: Finds multiple fields for multiple key templates
+Test: Matches everything for empty template
+Test: Finds the count of missing elements too
+Test: Returns all fields when field_list empty
+Test: Adds the row to an empty list
+Test: Fills the missing keys with empty string
+Test: Performing a mixed insert
+Tests: Can't insert element if element with same key exists
+Test: Finds record if the primary key exists
+Test: Finds record for multiple primary keys
+Test: Returns False record if primary keys do not match
+Test: Returns True in case template is found
+Test: Returns False in case any value of template is not found
+Test: Returns False in case any value of template does not match
+DEBUG:root:CSVDataTable.__init__: data = {
+  "table_name": "people",
+  "connect_info": {
+    "directory": "C:\\Users\\baldv\\Documents\\Sem1\\Introduction to Databases\\w4111-Databases\\HW_Assignments\\HW1_Template\\Data\\Baseball\\Testing",
+    "file_name": "People.csv"
+  },
+  "key_columns": null,
+  "debug": true
+}
+DEBUG:root:CSVDataTable._load: Loaded 19617 rows
+DEBUG:root:CSVDataTable._save: Saved 19617 rows
+DEBUG:root:CSVDataTable.__init__: data = {
+  "table_name": "people2",
+  "connect_info": {
+    "directory": "C:\\Users\\baldv\\Documents\\Sem1\\Introduction to Databases\\w4111-Databases\\HW_Assignments\\HW1_Template\\Data\\Baseball\\Testing",
+    "file_name": "People.csv"
+  },
+  "key_columns": null,
+  "debug": true
+}
+DEBUG:root:CSVDataTable._load: Loaded 19617 rows
+DEBUG:root:CSVDataTable._save: Saved 19617 rows
+Test: Saves People.csv with correct data
+Tests: Updates the element if it exists (single)
+Tests: Updates the element if it exists (multiple)
+Tests: Can't update if element not found (multiple)
+Tests: Updates the element if it exists (single)
+Tests: Updates the elements if they exists (multiple)
+Tests: Updates the element if it exists (multiple template)
+Tests: Can't update if element new value already exists
+Tests: Can't update if element new value already exists: template

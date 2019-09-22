@@ -1,0 +1,10 @@
+C:\Users\baldv\Anaconda3\envs\w4111\python.exe "C:/Users/baldv/Documents/Sem1/Introduction to Databases/w4111-Databases/HW_Assignments/HW1_Template/tests/test_RevenueReportCSV.py"
+[{'customerNumber': '112', 'country': 'USA'}]
+----------------------
+
+[{'customerNumber': '112', 'orderNumber': '10124', 'status': 'Shipped'}]
+----------------------
+
+[{'priceEach': '153.0', 'quantityOrdered': '21'}, {'priceEach': '58.12', 'quantityOrdered': '42'}, {'priceEach': '111.87', 'quantityOrdered': '42'}, {'priceEach': '75.46', 'quantityOrdered': '36'}, {'priceEach': '66.28', 'quantityOrdered': '23'}, {'priceEach': '62.47', 'quantityOrdered': '22'}, {'priceEach': '30.53', 'quantityOrdered': '45'}, {'priceEach': '36.29', 'quantityOrdered': '22'}, {'priceEach': '74.51', 'quantityOrdered': '32'}, {'priceEach': '93.95', 'quantityOrdered': '25'}, {'priceEach': '76.19', 'quantityOrdered': '49'}, {'priceEach': '101.73', 'quantityOrdered': '43'}, {'priceEach': '36.11', 'quantityOrdered': '46'}]
+
+Process finished with exit code 0
