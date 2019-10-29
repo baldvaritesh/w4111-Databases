@@ -118,7 +118,6 @@ def create_select(table_name, template, fields=None, order_by=None, limit=None, 
     :param offset: Ignore for now.
     :return: A tuple of the form (sql string, args), where the sql string is a template.
     """
-
     if is_select:
         if fields is None:
             field_list = " * "
@@ -127,15 +126,16 @@ def create_select(table_name, template, fields=None, order_by=None, limit=None, 
     else:
         field_list = None
 
-
     w_clause, args = template_to_where_clause(template)
 
     if is_select:
-        sql = "select " + field_list + " from " +  table_name + " " + w_clause
+        sql = "select " + field_list + " from " + table_name + " " + w_clause
+        if limit is not None and offset is not None and order_by is not None:
+            sql += " ORDER BY " + ", ".join(order_by) + " LIMIT " + str(limit) + " OFFSET " + str(offset)
     else:
         sql = "delete from " + table_name + " " + w_clause
 
-    return (sql, args)
+    return sql, args
 
 
 def create_insert(table_name, new_row):

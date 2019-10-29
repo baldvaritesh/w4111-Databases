@@ -7,6 +7,15 @@ import src.data_service.RDBDataTable as RDBDataTable
 # instances.
 _db_tables = {}
 
+# Default connection info
+_default_connect_info = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': 'databases4111',
+    'port': 3306
+}
+
+
 def get_rdb_table(table_name, db_name, key_columns=None, connect_info=None):
     """
 
@@ -51,14 +60,29 @@ def get_databases():
 
     :return: A list of databases/schema at this endpoint.
     """
+    global _default_connect_info
+    cnx = dbutils.get_connection(_default_connect_info)
+    sql_query = "SHOW DATABASES"
 
-    # -- TO IMPLEMENT --
-    pass
+    _, data = dbutils.run_q(sql=sql_query, args=None, fetch=True, cur=None, conn=cnx, commit=True)
+    if len(data) > 0:
+        return list(map(lambda f: f[0], data))
+    return []
 
 
+def get_tables(db_name):
+    global _default_connect_info
+    if db_name is None:
+        raise ValueError("Need to pass db name to access its tables")
+    connect_info = _default_connect_info
+    connect_info["db"] = db_name
+    cnx = dbutils.get_connection(connect_info)
+    sql_query = "SHOW TABLES IN " + db_name
 
-
-
+    _, data = dbutils.run_q(sql=sql_query, args=None, fetch=True, cur=None, conn=cnx, commit=True)
+    if len(data) > 0:
+        return list(map(lambda f: f[0], data))
+    return []
 
 
 

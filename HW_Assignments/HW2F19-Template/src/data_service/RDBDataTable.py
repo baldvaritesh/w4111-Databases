@@ -42,7 +42,7 @@ class RDBDataTable():
     _default_connect_info = {
         'host': 'localhost',
         'user': 'root',
-        'password': 'dbuserdbuser',
+        'password': 'databases4111',
         'db': 'lahman2019clean',
         'port': 3306
     }
@@ -92,8 +92,7 @@ class RDBDataTable():
         self._key_columns = None
         self._sample_rows = None
         self._related_resources = None
-        self_columns = None
-
+        self._columns = None
 
         """
         You should implement these methods. See the implementation templates below.
@@ -125,8 +124,10 @@ class RDBDataTable():
 
         :return: Returns the count of the number of rows in the table.
         """
+        sql_query = "SELECT COUNT(*) as count FROM " + self._full_table_name
+        _, data = dbutils.run_q(sql=sql_query, args=None, conn=self._cnx, commit=True, fetch=True)
+        self._row_count = data[0]["count"]
 
-        # -- TO IMPLEMENT --
 
     def get_primary_key_columns(self):
         """
@@ -138,6 +139,9 @@ class RDBDataTable():
 
         # Hint. Google "get primary key columns mysql"
         # Hint. THE ORDER OF THE COLUMNS IN THE KEY DEFINITION MATTERS.
+        sql_query = "SHOW KEYS FROM " + self._full_table_name + " WHERE KEY_NAME = 'PRIMARY'"
+        _, data = dbutils.run_q(sql=sql_query, args=None, conn=self._cnx, commit=True, fetch=True)
+        self._key_columns = [x['Column_name'] for x in data]
 
     def get_sample_rows(self, no_of_rows=_rows_to_print):
         """
@@ -213,13 +217,17 @@ class RDBDataTable():
         result = None
 
         try:
-            sql, args = dbutils.create_select(self._full_table_name, template=template, fields=field_list)
+            sql, args = dbutils.create_select(self._full_table_name, template=template, fields=field_list, limit=limit,
+                                              offset=offset, order_by=order_by)
             res, data = dbutils.run_q(sql=sql, args=args, conn=self._cnx, commit=True, fetch=True)
         except Exception as e:
             print("Exception e = ", e)
             raise e
 
-        return list(data)
+        if len(list(data)) != 0:
+            result = list(data)
+
+        return result
 
     def delete_by_template(self, template):
         """
@@ -232,6 +240,7 @@ class RDBDataTable():
         try:
             sql, args = dbutils.create_select(self._full_table_name, template=template, is_select=False)
             res, d = dbutils.run_q(sql, args=args, conn=self._cnx, commit=True)
+            self._row_count -= res
             return res
         except Exception as e:
             print("Got exception e = ", e)
@@ -259,6 +268,7 @@ class RDBDataTable():
         # Get the list of columns.
         sql, args = dbutils.create_insert(self._full_table_name, new_record)
         res, d = dbutils.run_q(sql, args=args, conn=self._cnx)
+        self._row_count += res
         return res
 
     def update_by_template(self, template, new_values):
@@ -281,7 +291,6 @@ class RDBDataTable():
 
         # Zipping together key_columns and passed fields produces a valid template
         tmp = dict(zip(key_columns, key_fields))
-
         # Update
         res = self.update_by_template(template=tmp, new_values=new_values)
         return res
@@ -315,4 +324,3 @@ class RDBDataTable():
         # Aly and Ara told me to get rid of this requirement or they would be unhappy.
         #
         pass
-

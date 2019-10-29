@@ -15,6 +15,7 @@ from flask import Flask, Response, request
 from datetime import datetime
 import json
 import src.data_service.data_table_adaptor as dta
+from urllib.parse import urlencode, quote
 
 import logging
 logging.basicConfig(level=logging.DEBUG)
@@ -49,6 +50,7 @@ def handle_args(args):
 
     return result
 
+
 # 1. Extract the input information from the requests object.
 # 2. Log the information
 # 3. Return extracted information.
@@ -77,7 +79,7 @@ def log_and_extract_input(method, path_params=None):
     # Get rid of the weird way that Flask sometimes handles query parameters.
     args = handle_args(args)
 
-    inputs =  {
+    inputs = {
         "path": path,
         "method": method,
         "path_params": path_params,
@@ -94,6 +96,14 @@ def log_and_extract_input(method, path_params=None):
         fields = fields.split(",")
         del args['fields']
         inputs['fields'] = fields
+
+    if args and args.get('limit', None) and args.get('offset', None):
+        limit = args.get('limit')
+        offset = args.get('offset')
+        del args['limit']
+        del args['offset']
+        inputs['limit'] = int(limit)
+        inputs['offset'] = int(offset)
 
     log_message += " received: \n" + json.dumps(inputs, indent=2)
     logger.debug(log_message)
@@ -114,6 +124,11 @@ def log_response(path, rsp):
 
 def get_field_list(inputs):
     return inputs.get('fields', None)
+
+
+def get_limit_offset(inputs):
+    return inputs.get('limit', None), inputs.get('offset', None)
+
 
 def generate_error(status_code, ex=None, msg=None):
     """
@@ -137,6 +152,29 @@ def generate_error(status_code, ex=None, msg=None):
     return rsp
 
 
+def datetime_converter(inp):
+    if isinstance(inp, datetime):
+        return inp.__str__()
+
+
+def create_links(limit, offset, template, field_list):
+    links = []
+    if limit is not None and offset is not None:
+        links.append({})
+        links[0]["rel"] = "current"
+        links[0]["href"] = request.base_url + "?" + urlencode({**template, 'fields': ",".join(field_list),
+                                                               'limit': limit, 'offset': offset})
+        links.append({})
+        links[1]["rel"] = "next"
+        links[1]["href"] = request.base_url + "?" + urlencode({**template, 'fields': ",".join(field_list),
+                                                               'limit': limit, 'offset': offset + limit})
+        if offset is 0:
+            return links
+        links.append({})
+        links[2]["rel"] = "previous"
+        links[2]["href"] = request.base_url + "?" + urlencode({**template, 'fields': ",".join(field_list),
+                                                               'limit': limit, 'offset': max(offset - limit, 0)})
+    return links
 ####################################################################################################
 #
 # THESE ARE JUST SOME EXAMPLES TO HELP YOU UNDERSTAND WHAT IS GOING ON.
@@ -183,13 +221,10 @@ def dbs():
 
     :return: A JSON object/list containing the databases at this endpoint.
     """
-    # -- TO IMPLEMENT --
+    msg = dta.get_databases()
 
-    # Your code  goes here.
-
-    # Hint: Implement the function in data_table_adaptor
-    #
-
+    rsp = Response(json.dumps(msg), status=200, content_type="application/json")
+    return rsp
 
 
 @application.route("/api/databases/<dbname>", methods=["GET"])
@@ -199,13 +234,10 @@ def tbls(dbname):
     :param dbname: The name of a database/sche,a
     :return: List of tables in the database.
     """
-
-    inputs = log_and_extract_input(dbs, None)
-
-    # Your code  goes here.
-
-    # Hint: Implement the function in data_table_adaptor
-    #
+    inputs = log_and_extract_input(tbls, None)
+    msg = dta.get_tables(dbname)
+    rsp = Response(json.dumps(msg), status=200, content_type="application/json")
+    return rsp
 
 
 @application.route('/api/<dbname>/<resource>/<primary_key>', methods=['GET', 'PUT', 'DELETE'])
@@ -223,33 +255,29 @@ def resource_by_id(dbname, resource, primary_key):
     try:
         # Parse the incoming request into an application specific format.
         context = log_and_extract_input(resource_by_id, (dbname, resource, primary_key))
+        field_list = get_field_list(context)
+        tbl = dta.get_rdb_table(table_name=resource, db_name=dbname)
 
-        #
-        # SOME CODE GOES HERE
-        #
-        # -- TO IMPLEMENT --
+        # Assuming keys don't have _ in them
+        key_values = primary_key.split('_')
 
         if request.method == 'GET':
-
-            #
-            # SOME CODE GOES HERE
-            #
-            # -- TO IMPLEMENT --
-            pass
+            result = tbl.find_by_primary_key(key_values, field_list=field_list)
+            if result is None:
+                return Response("Not Found", status=404, content_type='text/plain; charset=utf-8')
 
         elif request.method == 'DELETE':
-            #
-            # SOME CODE GOES HERE
-            #
-            # -- TO IMPLEMENT --
-            pass
+            result = tbl.delete_by_key(key_values)
+            if result is 0:
+                return Response("Not Found", status=404, content_type='text/plain; charset=utf-8')
 
         elif request.method == 'PUT':
-            #
-            # SOME CODE GOES HERE
-            #
-            # -- TO IMPLEMENT --
-            pass
+            result = tbl.update_by_key(key_values, new_values=context["query_params"])
+            if result is 0:
+                return Response("Not Found", status=404, content_type='text/plain; charset=utf-8')
+
+        rsp = Response(json.dumps(result, default=datetime_converter), status=200, content_type="application/json")
+        return rsp
 
     except Exception as e:
         print(e)
@@ -263,29 +291,31 @@ def get_resource(dbname, resource_name):
 
     try:
         context = log_and_extract_input(get_resource, (dbname, resource_name))
+        tbl = dta.get_rdb_table(table_name=resource_name, db_name=dbname)
 
-        #
-        # SOME CODE GOES HERE
-        #
-        # -- TO IMPLEMENT --
-
-
+        # From the query params
+        template = context["query_params"]
+        body = context["body"]
         if request.method == 'GET':
-            #
-            # SOME CODE GOES HERE
-            #
-            # -- TO IMPLEMENT --
-            pass
-
+            # find the value of the limits
+            field_list = get_field_list(context)
+            limit, offset = get_limit_offset(context)
+            links = create_links(limit, offset, template, field_list)
+            result = tbl.find_by_template(template, field_list=field_list, limit=limit, offset=offset,
+                                          order_by=tbl._key_columns)
+            if result is None:
+                return Response("Not Found", status=404, content_type='text/plain; charset=utf-8')
+            result = {"result": result, "links": links}
         elif request.method == 'POST':
-            #
-            # SOME CODE GOES HERE
-            #
-            # -- TO IMPLEMENT --
-            pass
+            result = tbl.insert(body)
+            if result is 1:
+                result = "Entry successfully created"
         else:
             result = "Invalid request."
             return result, 400, {'Content-Type': 'text/plain; charset=utf-8'}
+
+        rsp = Response(json.dumps(result, default=datetime_converter), status=200, content_type="application/json")
+        return rsp
     except Exception as e:
         print("Exception e = ", e)
         return handle_error(e, result)
@@ -301,8 +331,6 @@ def get_by_path(dbname, parent_name, primary_key, target_name):
     return result, 501, {'Content-Type': 'application/json; charset=utf-8'}
 
 
-
-
 @application.route('/api/<dbname>/<parent_name>/<primary_key>/<target_name>/<target_key>',
            methods=['GET'])
 def get_by_path_key(dbname, parent_name, primary_key, target_name, target_key):
@@ -315,13 +343,13 @@ def get_by_path_key(dbname, parent_name, primary_key, target_name, target_key):
 
 # You can ignore this method.
 def handle_error(e, result):
-    return "Internal error.", 504, {'Content-Type': 'text/plain; charset=utf-8'}
+    return "Internal error: " + str(e), 504, {'Content-Type': 'text/plain; charset=utf-8'}
+
 
 # run the app.
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
     # removed before deploying a production app.
-
 
     logger.debug("Starting HW2 time: " + str(datetime.now()))
     application.debug = True
